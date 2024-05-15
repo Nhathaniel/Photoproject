@@ -1,0 +1,532 @@
+{%load static%}
+{% comment %} {% include 'create_post.html' %} {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Trapezium</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+
+  <!-- Vendor CSS Files -->
+  
+  <link href="{%static 'assets/vendor/aos/aos.csS'%}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/bootstrap/css/bootstrap.min.csS'%}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/bootstrap-icons/bootstrap-icons.csS'%}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/boxicons/css/boxicons.min.csS'%}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/glightbox/css/glightbox.min.csS'%}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{%static 'assets/css/style.CSS'%}" rel="stylesheet">
+
+  <style>
+    /* Custom styles for responsiveness */
+    .image-container {
+      margin:0 0 30px;
+      z-index:23;
+     
+    }
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius:10px;
+      margin: auto;
+      z-index:23;
+      width: 250px; /* Set a fixed width for the product container */
+      height: 90px;
+    }
+    .image-container h3{
+      margin:0;
+      position: relative;
+      top:3rem;
+      left:3rem;
+      color:White;
+      font-weight:900;
+    }
+    /* Media query for small devices */
+    @media (max-width: 576px) {
+      .image-container {
+        width:500px;
+        margin-bottom: 10px; /* Adjust spacing for smaller devices */
+      }
+    }
+
+    a{
+      text-decoration: none;
+    }
+    .post-container {
+      margin-bottom: 20px;
+      position: relative;
+     
+    }
+    .post-container img {
+      max-width: 100%;
+      height: auto;
+      cursor: pointer;
+      width:250px;
+      height: 180px;
+
+    }
+    @media(max-width:1080px){
+      .post-container img {
+        width:550px;
+        margin-bottom: 10px;
+      }
+    }
+    @media (max-width:768px){
+      .post-container img {
+        width:550px;
+      }
+    }
+    .overlay-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: none;
+    }
+    .overlay-button a {
+      color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+    }
+    .overlay-button:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .exclusive-products {
+      padding: 50px 0;
+      background-color: #a3a3a5;
+      border-radius: 7px;
+      
+
+    }
+    .product-container {
+      overflow: hidden; /* Hide overflow to ensure consistent appearance */
+      margin-bottom: 20px;
+      margin: auto;
+    }
+    .product-container img {
+      width: 95%; /* Make the image fill its container */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 7px;
+      box-shadow: 0 0 10px rgba(8, 0, 0, 0.9);
+      width: 259px; /* Set a fixed width for the product container */
+      height: 150px;
+      
+    }
+    .post-container {
+      position: relative;
+      overflow: hidden;
+  }
+  
+  .username-container {
+      position: absolute;
+      bottom: -40px; /* Adjust as needed */
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+      transition: bottom 0.3s ease-in-out; /* Smooth transition */
+  }
+  
+  .username {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px 10px;
+      display: inline-block;
+  }
+  
+  .post-container:hover .username-container {
+      bottom: 0; /* Show username on hover */
+  }
+  
+  </style>
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div id="logo">
+        <h1><a href="index.html">Trapezium</a></h1>
+
+      <nav id="navbar" class="navbar">  
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Explore</a></li>
+          <li><a class="nav-link scrollto " href="/classroom/">Class room</a></li>
+          <li><a class="nav-link scrollto" href="/jobs/">Jobs</a></li>
+          <li>
+            <form STYLE="margin-left:50px; width:20rem; margin-right:4rem;" class="d-flex" role="search">
+              <button STYLE="border: none; background:none; position: relative; left:40px;" class="btn btn-outline-success" type="submit"><i class="fa fa-fab fa-search "></i></button>
+            <input STYLE=" width:20rem; padding-left: 3rem;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          </form>
+        </li>
+          <li><a class="nav-link scrollto" href="#contact"><i class="bi bi-bell" style="font-size:20px; color: black;" aria-hidden="true"></i></a></li>
+          
+          
+          <li class="dropdown"><a href="#"><span  class="fa fa-user-circle" style=" font-size:20px; "></span><i class="bi bi-chevron-down"></i>
+            <ul>
+              {% if user.is_authenticated %}
+              <li><a href="/profile/">My Profile</a></li>
+              {% if user.is_authenticated and user.is_superuser %}
+              <li class="dropdown"><a href="/admin/"><span>Admin Profile</span></i></a>
+              </li>
+              {%endif%}
+              <li><a href="{% url 'create_post' %}">Make Post</a></li>
+              <li><a href="/logout/">Logout</a></li>
+              {%else%}
+              <li><a href="/login/">My Profile</a></li>
+              
+              </li>
+              <li><a href="/login/">Make Post</a></li>
+              <li><a href="/login/">Login</a></li>
+              {% endif %}
+            </ul>
+            <li><a class="nav-link scrollto" href=""><i style="font-size:20px;" class="fa fa-fas fa-ellipsis-v"></i></a></li>
+        </ul>
+        </div>
+        <i class="bi bi-list mobile-nav-toggle"></i> 
+        
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= hero Section ======= -->
+  <section id="hero" style="background:url('{%static 'bird.jpg'%}')">
+
+    <div class="hero-content" data-aos="fade-up">
+      <h2>TRAPEZIUM</h2>
+      <h5>Welcome to the free and user friendly <br> online portfolio</h5>
+      <div>
+        {% if user.is_authenticated %}
+        <a href="/logout/" class="btn-get-started scrollto">Sign out</a>
+        {%else%}
+        <a href="/login/" class="btn-get-started scrollto">Sign in</a>
+        {% endif %}
+        
+        <a href="/jobs/" class="btn-projects scrollto">Jobs</a>
+      </div>
+    </div>
+
+    <div class="hero-slider swiper">  
+      <div class="swiper-wrapper">
+      {% comment %} <img class="swiper-slider" src="{%static '1.jpg'%}" alt="">
+        {% comment %} <div class="swiper-slide" style="background-image: url('static/1.jpg');"></div>
+         {% endcomment %}
+        {% comment %} <div class="swiper-slide" style="background-image: url('1.jpg');"></div> {% endcomment %}
+      </div> 
+    </div>
+  </section><!-- End Hero Section -->
+
+{% comment %} graphics, videos, 2d, 3d section {% endcomment %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="image-container">
+          <a href="#graphics">
+          <h3>Graphics</h3>
+          <img src="{%static 'products/girl.jpg'%}" class="img-fluid" alt="photoshop">
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="image-container">
+          <a href="#videos">
+          <h3>Videos</h3>
+          <img src="{%static 'products/nice.png'%}" class="img-fluid" alt="Image 2">
+        </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="image-container">
+          <a href="#2d">
+          <h3>2D</h3>
+          <img src="{%static 'products/vehicle.jpg'%}" class="img-fluid" alt="Image 3">
+        </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="image-container">
+          <a href="#3d">
+          <h3>3D</h3>
+          <img src="{%static 'products/boy.jpg'%}" class="img-fluid" alt="Image 4">
+        </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section id="clients">
+    <div class="container">
+      <div class="section-header">
+      </div>
+      <div class="clients-slider swiper">
+        <div class="swiper-wrapper align-items-center">
+         
+          <div class="swiper"><img src="{%static 'products/1.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/Adobe.webp'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/Blender.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/ae.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/m.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/canva.webp'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/DaVinci.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/indesign.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/original.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/pic.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/unity.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/sketchup.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/Unreal.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/figma.png'%}" class="img-fluid" alt=""></div>
+          <div class="swiper"><img src="{%static 'products/seeklog.png'%}" class="img-fluid" alt=""></div>
+          
+        </div>
+        {% comment %} <div class="swiper-pagination">
+        </div> {% endcomment %}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======= Post Section ======= -->
+   <!----====================== Graphics section===================-->
+   <section id="graphics" class="portfolio">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2 >Graphics</h2>
+        </div>
+        <div class="row">
+            <!-- Graphics Images -->
+            {% for post in graphics_posts %}
+            <div class="col-md-6 col-lg-3">
+                <div class="post-container">
+                    <img src="{{ post.post.image.url }}" alt="{{ post.post.title }}" class="img-fluid" alt="Graphics Image" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                    <div class="overlay-button">
+                        <a href="{{ post.post.image.url }}" class="btn btn-primary" target="_blank"><i class="fa fa-fas fa-expand-alt" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="username-container">
+                        <a href="#" class="username">User 1</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- Add more col-md-6 col-lg-3 divs for graphics images here -->
+        </div>
+    </div>
+
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Videos</h2>
+        </div>
+        <div class="row">
+            <!-- Video Images -->
+            {% for post in video_posts %}
+<div class="col-md-6 col-lg-3">
+    <div class="post-container">
+        <!-- Assuming post is a VideoPost with a video_url field -->
+        <iframe width="265" height="175" src="{{ post.video_url }}" frameborder="0" allowfullscreen></iframe>
+        <div class="overlay-button">
+            <a href="{{ post.video_url }}" class="btn btn-primary" target="_blank"><i class="fa fa-fas fa-play" aria-hidden="true"></i></a>
+        </div>
+        <div class="username-container">
+            <a href="#" class="username">User 1</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+            <!-- Add more col-md-6 col-lg-3 divs for video images here -->
+        </div>
+    </div>
+
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>2D</h2>
+        </div>
+        <div class="row">
+            <!-- 2D Images -->
+            {% for post in twD_posts %}
+            <div class="col-md-6 col-lg-3">
+                <div class="post-container">
+                    <img src="{{ post.post.image.url }}" alt="{{ post.post.title }}" class="img-fluid" alt="2D Image" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                    <div class="overlay-button">
+                        <a href="{{ post.post.image.url }}" class="btn btn-primary" target="_blank"><i class="fa fa-fas fa-expand-alt" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="username-container">
+                        <a href="#" class="username">User 1</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- Add more col-md-6 col-lg-3 divs for 2D images here -->
+        </div>
+    </div>
+
+
+
+    <div class="container" data-aos="fade-up">
+    <div class="section-header">
+            <h2>3D</h2>
+        </div>
+        <div class="row">
+            <!-- Graphics Images -->
+            {% for post in thD_posts %}
+            <div class="col-md-6 col-lg-3">
+                <div class="post-container">
+                    <img src="{{ post.post.image.url }}" alt="{{ post.post.title }}" class="img-fluid" alt="3D Image" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                    <div class="overlay-button">
+                        <a href="{{ post.post.image.url }}" class="btn btn-primary" target="_blank"><i class="fa fa-fas fa-expand-alt" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="username-container">
+                        <a href="#" class="username">User 1</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- Add more col-md-6 col-lg-3 divs for graphics images here -->
+        </div>
+    
+
+
+  <section class="exclusive-products">
+    <div class="container">
+      <h2 style="margin:0; padding: 0;">Exclusive Products</h2>
+      <p style="color: white;" class=" mb-4">Discover our exclusive collection of premium products.<br> Limited availability, so grab them while you can!</p>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="product-container">
+            <a href="#">
+              <img src="{%static 'products/images.jfif'%}" class="img-fluid" alt="Product 1">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-container">
+            <a href="#">
+              <img src="{%static 'products/car.jpg'%}" class="img-fluid" alt="Product 2">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-container">
+            <a href="#">
+              <img src="{%static 'products/boy.jpg'%}" class="img-fluid" alt="Product 3">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-container">
+            <a href="#">
+              <img src="{%static 'products/girl.jpg'%}" class="img-fluid" alt="Product 4">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </section>
+</section>  
+
+</div>
+</section><!-- End Portfolio Section -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">Email:Sparkescel@gmail.com</a></li>
+          <li><a href="#">Phone: +233 123 456 7890</a></li>
+          <li><a href="#">Address: 123 Street, Kumasi, Ghana</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Trapezium</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Donate</h4>
+        <ul>
+          <li><a href="/donate/">Donate Now</a></li>
+          <li><a href="/ways_to_give/">Ways to Give</a></li>
+          <li><a href="/donate_faq/">Donation FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/faqs/">FAQs</a></li>
+          <li><a href="/customer_support/">Customer Support</a></li>
+          <li><a href="/terms/">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="created-by">
+    Designed by <a href="">Nathaniel</a>
+  </div>
+</footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+  <main id="main">
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript to show overlay button on hover -->
+  <script>
+    document.querySelectorAll('.post-container').forEach(function(container) {
+      container.addEventListener('mouseover', function() {
+        this.querySelector('.overlay-button').style.display = 'flex';
+      });
+      container.addEventListener('mouseout', function() {
+        this.querySelector('.overlay-button').style.display = 'none';
+      });
+    });
+  </script>
+
+  <!-- Vendor JS Files -->
+  <script src="{%static 'assets/vendor/aos/aos.js'%}"></script>
+  <script src="{%static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{%static 'assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
+  <script src="{%static 'assets/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
+  <script src="{%static 'assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+  <script src="{%static 'assets/vendor/php-email-form/validate.js'%}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{%static 'assets/js/main.js'%}"></script>
+
+</body>
+
+</html>

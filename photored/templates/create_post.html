@@ -1,0 +1,46 @@
+<!-- In your template (create_post.html) -->
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Optional: You can also include your own custom CSS file for additional styling -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <!-- Form content -->
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.title }}
+                    {{ form.description }}
+                    {{ form.image }}
+                    <div class="form-group">
+                        <label for="id_category">Category:</label>
+                        <select id="id_category" name="category" class="form-control">
+                            {% for category_key, category_label in form.fields.category.choices %}
+                                <option value="{{ category_key }}">{{ category_label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
